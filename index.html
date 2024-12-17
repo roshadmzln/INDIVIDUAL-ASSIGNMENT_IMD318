@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="index.css">
+    
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Roshada Mazlan</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="aboutme.html">About Me</a></li> <!-- Link to About Me section -->
+                <li><a href="education.html">Education</a></li>
+                <li><a href="family.html">Family</a></li>
+                <li><a href="friends.html">Friends</a></li>
+                <li><a href="hobby.html">Hobby</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <!-- Background Image Slider -->
+        <div class="slider">
+            <img src="image/welcome.png" class="active" alt="Background 1">
+            <img src="image/slider 4.jpg" alt="Background 2">
+            <img src="image/slider 3.jpg" alt="Background 3">
+            <img src="image/slider 2.jpg" alt="Background 3">
+        </div>
+        <!-- Content -->
+        <div class="welcome-content">
+            <h1>Welcome</h1>
+            <h2>to my personal space</h2>
+            <a href="aboutme.html">About Me</a>
+            <h3>click hear if you want to hear somethin</h3>
+        </div>
+    </section>
+ <audio id="background-audio" autoplay loop muted>
+    <source src="audio/bunga maaf.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+<script>
+    // Unmute audio after user interaction (click)
+    document.body.addEventListener('click', function() {
+        const audio = document.getElementById('background-audio');
+        audio.muted = false;
+        audio.play();
+    });
+</script>
+    
+
+    <script>
+        // JavaScript for Slider Functionality
+        const images = document.querySelectorAll('.slider img');
+        let currentImageIndex = 0;
+
+        function changeImage() {
+            images[currentImageIndex].classList.remove('active'); // Remove active class from current image
+            currentImageIndex = (currentImageIndex + 1) % images.length; // Move to the next image
+            images[currentImageIndex].classList.add('active'); // Add active class to the new image
+        }
+
+        setInterval(changeImage, 4000); // Change image every 4 seconds
+    </script>
+ <footer>
+        <p>&copy; 2024 Roshada Mazlan. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+

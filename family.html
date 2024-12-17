@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family</title>
+    <link rel="stylesheet" href="family.css">
+   
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Roshada Mazlan</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutme.html">About me</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="#family">Family</a></li>
+                <li><a href="friends.html">Friends</a></li>
+                <li><a href="hobby.html">Hobby</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="family" class="container">
+        <h2>My Family</h2>
+        <div class="family-grid">
+              <!-- Father Card -->
+            <div class="family-card">
+                <img src="image/abah.jpg" alt="Abah">
+                <h3>Mazlan bin Harun</h3>
+                <p>Father | KPDNKK </p>
+                <p>Birthdate: 7th October 1970 </p>
+                <p>Hobbies: Badminton, Gardening</p>
+                <p>Favorite Food: Fish Curry</p>
+            </div>
+
+            <!-- Mother Card -->
+            <div class="family-card">
+                <img src="image/mama.jpg" alt="Mother">
+                <h3>Bashirah binti Ismail</h3>
+                <p>Mother | Teacher</p>
+                <p>Birthdate: 17th July 1968 </p>
+                <p>Hobbies: Cooking, Gardening, Baking</p>
+                <p>Favorite Food: Koeyteow Teng</p>
+            </div>
+           
+            <!-- Elder Brother Card -->
+            <div class="family-card">
+                <img src="image/chaq.jpg" alt="Elder Brother">
+                <h3>Mohammad Fitri bin Mazlan</h3>
+                <p>Elder Brother | Engineering</p>
+                <p>Birthdate: 18th September 1996 </p>
+                <p>Hobbies: Badminton, Travel</p>
+                <p>Favorite Food: Chicken Rice</p>
+            </div>
+
+            <!-- Younger Brother Card -->
+            <div class="family-card">
+                <img src="image/luqman.jpg" alt="Younger Brother">
+                <h3>Muhammad Luqman Hakim bin Mazlan</h3>
+                <p>Younger Brother | Student</p>
+                <p>Birthdate: 17th September 2000 </p>
+                <p>Hobbies: Badminton, Hiking</p>
+                <p>Favorite Food: Chicken Grill</p>
+            </div>
+
+            <!-- Elder Sister Card -->
+            <div class="family-card">
+                <img src="image/kak.jpg" alt="Elder Sister">
+                <h3>Amira Fatihah Binti Khamarazaman</h3>
+                <p>Sister in Law | Nurse</p>
+                <p>Birthdate: 22th September 1996</p>
+                <p>Hobbies: Cooking, Reading</p>
+                <p>Favorite Food: Spaghetti Bolognese</p>
+            </div>
+
+            <!-- Younger Nephew Card -->
+            <div class="family-card">
+                <img src="image/athif.jpg" alt="Younger Nephew">
+                <h3>Muhammad Athif Furqan Bin Muhammad Fitri</h3>
+                <p>Nephew</p>
+                <p>Birthdate: 4th January 2023</p>
+                <p>Hobbies: Make a cute face, Crying</p>
+                <p>Favorite Food: Milk, Biscuits</p>
+            </div>
+        </div>
+    </section>
+        </div>
+    </section>
+
+    <section class="gallery container">
+        <h2>Family Photos</h2>
+        <div class="slider">
+            <div class="slides">
+                <img src="image/family 1.jpg" alt="Family Photo 1">
+                <img src="image/family 2.jpg" alt="Family Photo 2">
+                <img src="image/family 3.jpg" alt="Family Photo 3">
+                <img src="image/family 4.jpg" alt="Family Photo 4">
+            </div>
+            <div class="slider-buttons">
+                <button id="prev">&lt;</button>
+                <button id="next">&gt;</button>
+            </div>
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const slides = document.querySelector('.slides');
+        const slideImages = document.querySelectorAll('.slides img');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+        const dots = document.querySelectorAll('.dot');
+
+        let currentIndex = 0;
+
+        function updateSlider(index) {
+            const width = slideImages[0].clientWidth;
+            slides.style.transform = `translateX(${-index * width}px)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+        }
+
+        function showNextSlide() {
+            currentIndex = (currentIndex + 1) % slideImages.length;
+            updateSlider(currentIndex);
+        }
+
+        function showPrevSlide() {
+            currentIndex = (currentIndex - 1 + slideImages.length) % slideImages.length;
+            updateSlider(currentIndex);
+        }
+
+        nextButton.addEventListener('click', showNextSlide);
+        prevButton.addEventListener('click', showPrevSlide);
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateSlider(currentIndex);
+            });
+        });
+
+        // Auto-slide every 3 seconds
+        setInterval(showNextSlide, 5000);
+    </script>
+<footer>
+        <p>&copy; 2024 Roshada Mazlan. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+
+
